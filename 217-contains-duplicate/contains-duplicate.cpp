@@ -1,12 +1,17 @@
 class Solution {
 public:
     bool containsDuplicate(vector<int>& nums) {
-        unordered_map<int,bool> maps;
+        map<int, int> students;
         for(int i=0;i<nums.size();i++){
-            if(maps[nums[i]])return true;
-            else maps[nums[i]]=true;
+            if(students[nums[i]])students[nums[i]]++;
+            else students[nums[i]]=1;
 
-        }//for
-        return false;
-    }
+        }//
+ for (auto pair : students) {
+    if (pair.second >=2) return true;
+    
+}
+return false;
+    
+};
 };
