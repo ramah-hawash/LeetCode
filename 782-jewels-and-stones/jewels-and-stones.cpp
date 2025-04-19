@@ -1,17 +1,19 @@
 class Solution {
 public:
     int numJewelsInStones(string jewels, string stones) {
-        unordered_set<char> st;
-        int flag=0;
-        for(int i=0;i<jewels.size();i++){
-            st.insert(jewels[i]);
-
-        }//for 
-        for(int j=0;j<stones.size();j++){
-            if(st.count(stones[j]))flag++;
-
+        bool isJewel[128] = {false}; // ASCII table كافية لتغطي جميع الأحرف
+        
+        // نحدد الأحرف اللي تعتبر جواهر
+        for (char j : jewels) {
+            isJewel[j] = true;
         }
-        return flag;
 
+        int count = 0;
+        // نحسب عدد الأحرف اللي موجودة بالحجر وبتكون جواهر
+        for (char s : stones) {
+            if (isJewel[s]) count++;
+        }
+
+        return count;
     }
 };
