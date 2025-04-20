@@ -15,7 +15,6 @@ public:
   while (current != nullptr && current->next != nullptr) {
     if (current->val == current->next->val) {
 current->next = current->next->next;
-        cout << current->val << " ";
 
     }
    else current = current->next;
